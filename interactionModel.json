@@ -1,0 +1,200 @@
+{
+  "intents": [
+    {
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "GetPitch",
+      "samples": [
+        "{Pitch} {FirstModifier} {SecondModifier}",
+        "give me a {Pitch} {FirstModifier} {SecondModifier}",
+        "give me an {Pitch} {FirstModifier} {SecondModifier}",
+        "play a {Pitch} {FirstModifier} {SecondModifier}",
+        "play an {Pitch} {FirstModifier} {SecondModifier}",
+        "sing a {Pitch} {FirstModifier} {SecondModifier}",
+        "sing an {Pitch} {FirstModifier} {SecondModifier}",
+        "for a {Pitch} {FirstModifier} {SecondModifier}",
+        "for an {Pitch} {FirstModifier} {SecondModifier}"
+      ],
+      "slots": [
+        {
+          "name": "Pitch",
+          "type": "LIST_OF_PITCHES",
+          "samples": []
+        },
+        {
+          "name": "FirstModifier",
+          "type": "LIST_OF_MODIFIERS",
+          "samples": []
+        },
+        {
+          "name": "SecondModifier",
+          "type": "LIST_OF_MODIFIERS",
+          "samples": []
+        }
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "LIST_OF_MODIFIERS",
+      "values": [
+        {
+          "id": null,
+          "name": {
+            "value": "flat",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "sharp",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "natural",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "double",
+            "synonyms": []
+          }
+        }
+      ]
+    },
+    {
+      "name": "LIST_OF_PITCHES",
+      "values": [
+        {
+          "id": "",
+          "name": {
+            "value": "A.",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "B.",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "C.",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "D.",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "E.",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "F.",
+            "synonyms": []
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "G.",
+            "synonyms": []
+          }
+        }
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "id": "Elicit.Intent-GetPitch.IntentSlot-Pitch",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What pitch would you like?"
+        },
+        {
+          "type": "PlainText",
+          "value": "What note would you like?"
+        },
+        {
+          "type": "PlainText",
+          "value": "Which pitch?"
+        },
+        {
+          "type": "PlainText",
+          "value": "Okay, which note?"
+        },
+        {
+          "type": "PlainText",
+          "value": "Sure, which pitch should I give you?"
+        }
+      ]
+    }
+  ],
+  "dialog": {
+    "version": "1.0",
+    "intents": [
+      {
+        "name": "GetPitch",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "Pitch",
+            "type": "LIST_OF_PITCHES",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-GetPitch.IntentSlot-Pitch"
+            }
+          },
+          {
+            "name": "FirstModifier",
+            "type": "LIST_OF_MODIFIERS",
+            "elicitationRequired": false,
+            "confirmationRequired": false,
+            "prompts": {}
+          },
+          {
+            "name": "SecondModifier",
+            "type": "LIST_OF_MODIFIERS",
+            "elicitationRequired": false,
+            "confirmationRequired": false,
+            "prompts": {}
+          }
+        ]
+      }
+    ]
+  }
+}
